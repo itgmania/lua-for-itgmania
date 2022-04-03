@@ -156,7 +156,7 @@ save yourself some time, copy this for undocumented things:
 	</Function>
 	<Function name='convert_xml_bgs' return='' arguments='string dir'>
 		Recursively searches <code>dir</code> for xml files of actors and converts them to equivalent lua files.
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/XmlToLua.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/XmlToLua.txt</a>.
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/XmlToLua.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/XmlToLua.txt</a>.
 	</Function>
 	<Function name='create_bezier' return='RageBezier2D' arguments=''>
 		Creates a RageBezier2D for you to use.  Make sure you destroy the RageBezier2D when you're done with it, or you will have a memory leak.
@@ -411,6 +411,13 @@ save yourself some time, copy this for undocumented things:
 	<Function name='join' theme='_fallback' return='string' arguments='string delimiter, table list'>
 		[02 Utilities.lua] Joins a table, splitting each item with <code>delimiter</code>, returning a string of the results.
 	</Function>
+	<Function name='JsonDecode' return='various' arguments='string data'>
+		Decodes JSON encoded <code>data</code> and returns the result.
+	</Function>
+	<Function name='JsonEncode' return='string' arguments='various data, bool minify'>
+		Returns <code>data</code> as JSON. Empty tables are represented as arrays in the output.<br />
+		<code>minify</code> is optional and defaults to <code>false</code>. If <code>true</code>, all unnecessary whitespace is omitted from the output.
+	</Function>
 	<Function name='JudgmentLineToColor' theme='_fallback' return='color' arguments='JudgmentLine jl'>
 		[02 Colors.lua]
 	</Function>
@@ -459,10 +466,6 @@ save yourself some time, copy this for undocumented things:
 	</Function>
 	<Function name='MissCombo' theme='_fallback' return='int' arguments=''>
 		[03 Gameplay.lua] Returns the value to start showing the miss combo at.
-	</Function>
-	<Function name='module' return='void' arguments='string name, ...'>
-		Creates a module.<br />
-		<code>module</code> is a core function of Lua's basic library; see the Lua manual for more details.
 	</Function>
 	<Function name='MonthOfYear' return='int' arguments=''>
 		Returns the current month of the year in the range <code>0</code>-<code>11</code>.
@@ -572,10 +575,6 @@ save yourself some time, copy this for undocumented things:
 	</Function>
 	<Function name='ReportStyle' return='void' arguments=''>
 		Sends the current style to the server.
-	</Function>
-	<Function name='require' return='void' arguments='string modname'>
-		Loads the specified module.<br />
-		<code>require</code> is a core function of Lua's basic library; see the Lua manual for more details.
 	</Function>
 	<Function name='round' theme='_fallback' return='int' arguments='float val, int decimal'>
 		[02 Utilities.lua] Round a number.
@@ -1181,7 +1180,7 @@ local n = r['PlayerNumber_P2']
 	</Function>
 	<Function name='diffuseblink' return='void' arguments=''>
 		Makes the Actor switch between two colors immediately.
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
 		for an example.
 	</Function>
 	<Function name='diffusebottomedge' return='void' arguments='color c'>
@@ -1201,7 +1200,7 @@ local n = r['PlayerNumber_P2']
 	</Function>
 	<Function name='diffuseramp' return='void' arguments=''>
 		Makes the Actor switch between two colors, jumping back to the first after reaching the second.
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
 		for an example.
 	</Function>
 	<Function name='diffuserightedge' return='void' arguments='color c'>
@@ -1209,7 +1208,7 @@ local n = r['PlayerNumber_P2']
 	</Function>
 	<Function name='diffuseshift' return='void' arguments=''>
 		Makes the Actor shift between two colors smoothly.
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
 		for an example.
 	</Function>
 	<Function name='diffusetopedge' return='void' arguments='color c'>
@@ -1366,17 +1365,17 @@ local n = r['PlayerNumber_P2']
 	</Function>
 	<Function name='glowblink' return='void' arguments=''>
 		Makes the Actor glow between two colors immediately.
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
 		for an example.
 	</Function>
 	<Function name='glowramp' return='void' arguments=''>
 		Makes the Actor glow between two colors smoothly, jumping back to the first at the end.
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
 		for an example.
 	</Function>
 	<Function name='glowshift' return='void' arguments=''>
 		Makes the Actor glow between two colors smoothly.
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/effect_colors.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/effect_colors.txt</a>
 		for an example.
 	</Function>
 	<Function name='halign' return='void' arguments='float fAlign'>
@@ -1552,7 +1551,7 @@ spr.InitCommand=function(self)
 	self:vertalign('VertAlign_Bottom')
 end
 </code></pre>
-		See <Link function="valign" /> for fractional alignment.
+		Use <Link function="valign" /> for fractional alignment.
 	</Function>
 	<Function name='vibrate' return='void' arguments=''>
 		Makes the Actor vibrate violently. Can use <Link function='effectmagnitude' /> to define different vibration behavior.
@@ -3570,6 +3569,71 @@ end
 		Selects a song. Returns <code>false</code> on failure.
 	</Function>
 </Class>
+<Class name='NetworkManager'>
+	<Description>
+		This singleton is accessible to Lua via <code>NETWORK</code>.<br />
+		By default, access to the network is disabled for all target hosts. It can be enabled by setting <code>HttpEnabled=1</code> in the preferences. Individual hosts have to be added to <code>HttpAllowHosts</code> as a comma separated list to allow access.
+	</Description>
+	<Function name='IsUrlAllowed' return='bool' arguments='string url'>
+		Returns true if access to <code>url</code> is allowed.
+	</Function>
+	<Function name='HttpRequest' return='HttpRequestFuture' arguments='table params'>
+		Performs an HTTP request.<br />
+		Usage example:
+<pre><code>
+NETWORK:HttpRequest{
+	url="https://api.example.com",
+	method="GET",                           	-- default: "GET"
+	body="",                                	-- default: ""
+	multipartBoundary="",                   	-- default: ""
+	headers={                               	-- default: {}
+		["Accept-Language"]="en-US",
+		["Cookie"]="sessionId=42",
+	},
+	connectTimeout=3,                       	-- default: 60
+	transferTimeout=10,                     	-- default: 1800
+	downloadFile="",				-- default: no download file
+	onProgress=function(currentBytes, totalBytes)	-- default: no callback
+		...
+	end,
+	onResponse=function(response)           	-- default: no callback
+		...
+	end,
+}
+</code></pre>
+	Everything but <code>url</code> is optional. Supported methods are <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>, <code>DELETE</code> and <code>HEAD</code>.<br />
+	A response looks like this:
+<pre><code>
+{
+	statusCode=200,
+	headers={
+		["Content-Type"]="application/json",
+		["Cache-Control"]="max-age=172800",
+		["Server"]="Apache",
+	},
+	body="{...}"
+	uploadSize=204,
+	downloadSize=216,
+}
+</code></pre>
+	In case of an error the callback is called with a structure like this:
+<pre><code>
+{
+	error="HttpErrorCode_Blocked",
+	errorMessage="access to https://api.example.com is not allowed",
+}
+</code></pre>
+	If the <code>downloadFile</code> parameter is set, the response body is not accumulated in memory, but written to <code>/Downloads/${downloadFile}</code>.
+	The file is available in the <code>onResponse</code> callback where it can be unzipped/copied to another location using <code>FILEMAN:Unzip()</code>/<code>FILEMAN:Copy()</code> respectively.
+	The file is deleted once the callback returns.
+	</Function>
+	<Function name='UrlEncode' return='string' arguments='string value'>
+		Returns the URL encoded representation of <code>value</code>.
+	</Function>
+	<Function name='EncodeQueryParameters' return='string' arguments='table query'>
+		Returns the <code>query</code> encoded as a query string. Keys and values are automatically URL encoded.
+	</Function>
+</Class>
 <Class name='NoteSkinManager'>
 	<Description>
 		This singleton is accessible to Lua via <code>NOTESKIN</code>.
@@ -3933,6 +3997,10 @@ a,b = options:Boost(5)
 	</Function>
 	<Function name='Dizzy' return='float, float' arguments='float value, float approach_speed'> </Function>
 	<Function name='DizzyHolds' return='bool' arguments='bool value'> </Function>
+	<Function name='DisableTimingWindow' return='' arguments='TimingWindow tw'>
+		Selectively disable specific timing windows for a player. <br />
+		Valid values are <code>W1</code> to <code>W5</code> as defined in the <Link class='ENUM' function='TimingWindow' /> enum.
+	</Function>
 	<Function name='Distant' return='float, float' arguments='float value, float approach_speed'>
 		If the player is using Distant (zero skew and positive tilt), returns the value of tilt and its approach_speed.<br />
 		Returns nil otherwise.<br />
@@ -3978,6 +4046,9 @@ a,b = options:Boost(5)
 	</Function>
 	<Function name='Flip' return='float, float' arguments='float value, float approach_speed'> </Function>
 	<Function name='Floored' return='bool' arguments='bool value'> </Function>
+	<Function name='GetDisabledTimingWindows' return='{TimingWindow}' arguments=''>
+		Returns a table of the currently disabled <Link class='ENUM' function='TimingWindow' />s for the player.
+	</Function>
 	<Function name='GetStepAttacks' return='bool' arguments=''>
 		Returns true if step attacks or random attacks are enabled.
 	</Function>
@@ -4083,6 +4154,9 @@ prev_note_name, succeeded = options:NoteSkin("cel")
 	<Function name='RandAttack' return='float, float' arguments='float value, float approach_speed'> </Function>
 	<Function name='RandomSpeed' return='float, float' arguments='float value, float approach_speed'> </Function>
 	<Function name='RandomVanish' return='float, float' arguments='float value, float approach_speed'> </Function>
+	<Function name='ResetDisabledTimingWindows' return='' arguments=''>
+		Re-enable all <Link class='ENUM' function='TimingWindow' />s that may have previously been disabled.
+	</Function>
 	<Function name='Reverse' return='float, float' arguments='float value, float approach_speed'> </Function>
 	<Function name='Reversen' return= 'float, float' arguments='float value, float approach_speed'>
 		Use 1-16 in place of 'n' to apply Reverse on a specific column.
@@ -4182,6 +4256,11 @@ prev_note_name, succeeded = options:NoteSkin("cel")
 	<Function name='Twister' return='bool' arguments='bool value'> </Function>
 	<Function name='UsingReverse' return='bool' arguments=''>
 		Returns <code>true</code> if the player is using reverse. (equivalent to <code>GetReverse() == 1.0</code>)
+	</Function>
+	<Function name='VisualDelay' return='' arguments='float'>
+		The time in seconds to adjust a player's visual delay by.<br />
+		Negative values will shift the arrows up, while positive values will push them down.<br />
+		Sub-millisecond visual delay values are not saved and are instead rounded to the closest millisecond.
 	</Function>
 	<Function name='Wave' return='float, float' arguments='float value, float approach_speed'> </Function>
 	<Function name='WavePeriod' return='float, float' arguments='float value, float approach_speed'> </Function>
@@ -4627,7 +4706,7 @@ prev_note_name, succeeded = options:NoteSkin("cel")
 	</Function>
 	<Function name='GetProfileDir' return='string' arguments='ProfileSlot slot'>
 		Returns the profile directory for the provided <Link class="ENUM" function="ProfileSlot">ProfileSlot</Link>, formatted like <code>/Save/LocalProfiles/00000001/</code>.<br />
-		Returns an empty string if the the provided <Link class="ENUM" function="ProfileSlot">ProfileSlot</Link> does not have a <Link class="Profile" /> loaded.
+		Returns an empty string if the provided <Link class="ENUM" function="ProfileSlot">ProfileSlot</Link> does not have a <Link class="Profile" /> loaded.
 	</Function>
 	<Function name='GetSongNumTimesPlayed' return='int' arguments='Song s, ProfileSlot ps'>
 		Returns the number of times Song <code>s</code> has been played with the specified <Link class="ENUM" function="ProfileSlot">ProfileSlot</Link>.
@@ -4791,6 +4870,10 @@ prev_note_name, succeeded = options:NoteSkin("cel")
 	<Description>
 		This singleton is accessible to Lua via <code>FILEMAN</code>.
 	</Description>
+	<Function name='Copy' return='bool' arguments='string fromPath, string toPath'>
+		Copies a file from <code>fromPath</code> to <code>toPath</code>.
+		Returns <code>true</code> if the file was copied successfully.
+	</Function>
 	<Function name='DoesFileExist' return='bool' arguments='string sPath'>
 		Returns <code>true</code> if a file exists at <code>sPath</code>.
 	</Function>
@@ -4802,6 +4885,12 @@ prev_note_name, succeeded = options:NoteSkin("cel")
 	</Function>
 	<Function name='GetHashForFile' return='int' arguments='string sPath'>
 		Returns the hash of the file at <code>sPath</code>.
+	</Function>
+	<Function name='Unzip' return='bool' arguments='string zipPath, string targetPath, int strip'>
+		Unzips zip file at <code>zipPath</code> to <code>targetPath</code>.<br />
+		<code>strip</code> is optional and defaults to <code>0</code>.
+		If set to a number larger than <code>0</code>, that many components are removed from the paths of the extracted files. e.g. <code>a/b/c</code> is replaced with <code>b/c</code> when stripping one component or just <code>c</code> when stripping two.<br />
+		Returns <code>true</code> if all files were extracted successfully.
 	</Function>
 </Class>
 <Class name='RageInput'>
@@ -5080,19 +5169,19 @@ Details of the <code>event</code> table:
 	</Function>
 	<Function name='HasteAddAmounts' return='{float}' arguments='{float}'>
 		This is part of the system for controlling how haste behaves. <br />
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
 	</Function>
 	<Function name='HasteLifeSwitchPoint' return='float' arguments='float'>
 		This is part of the system for controlling how haste behaves. <br />
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
 	</Function>
 	<Function name='HasteTimeBetweenUpdates' return='float' arguments='float'>
 		This is part of the system for controlling how haste behaves. <br />
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
 	</Function>
 	<Function name='HasteTurningPoints' return='{float}' arguments='{float}'>
 		This is part of the system for controlling how haste behaves. <br />
-		See <a href="https://github.com/stepmania/stepmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
+		See <a href="https://github.com/itgmania/itgmania/blob/HEAD/Docs/Themerdocs/haste.txt" target="_blank" rel="noopener noreferrer">Docs/Themerdocs/haste.txt</a>.
 	</Function>
 	<Function name='SetNewScreen' return='void' arguments='string s'>
 		Sets the next Screen to be loaded.
@@ -5605,10 +5694,10 @@ local args = {
 		Returns the extra stage info (Song, Steps) for the specified Style <code>s</code>. If <code>b2ndExtra</code> is true, it will use the second Extra Stage data instead of the first.
 	</Function>
 	<Function name='GetNumAdditionalCourses' return='int' arguments=''>
-		Returns the number of courses loaded via Additional folders.
+		[Deprecated] Always returns <code>0</code>
 	</Function>
 	<Function name='GetNumAdditionalSongs' return='int' arguments=''>
-		Returns the number of songs loaded via Additional folders.
+		[Deprecated] Always returns <code>0</code>
 	</Function>
 	<Function name='GetNumCourseGroups' return='int' arguments=''>
 		Returns the number of course groups.
@@ -5683,10 +5772,10 @@ local args = {
 		Returns the preferred sort section name for the specified Song.
 	</Function>
 	<Function name='WasLoadedFromAdditionalCourses' return='bool' arguments='Course c'>
-		Returns <code>true</code> if the specified course was loaded from AdditionalCourses.
+		[Deprecated] Always returns <code>false</code>
 	</Function>
 	<Function name='WasLoadedFromAdditionalSongs' return='bool' arguments='Song s'>
-		Returns <code>true</code> if the specified song was loaded from AdditionalSongs.
+		[Deprecated] Always returns <code>false</code>
 	</Function>
 </Class>
 <Class name='SongOptions'>
@@ -5902,6 +5991,9 @@ local spr = Def.Sprite{
 	<Function name='AllFailed' return='bool' arguments=''>
 		Returns <code>true</code> if everyone failed.
 	</Function>
+	<Function name='GaveUp' return='bool' arguments=''>
+		Returns <code>true</code> if any player has given up on the song.
+	</Function>
 	<Function name='GetEarnedExtraStage' return='EarnedExtraStage' arguments=''>
 		Returns the <Link class="ENUM" function="EarnedExtraStage">EarnedExtraStage</Link> value.
 	</Function>
@@ -6082,7 +6174,7 @@ local spr = Def.Sprite{
 		Returns <code>true</code> if this style locks the difficulty for both players.
 	</Function>
 	<Function name='NeedsZoomOutWith2Players' return='bool' arguments=''>
-		Deprecated.  Always returns false.
+		[Deprecated] Always returns <code>false</code>.
 	</Function>
 </Class>
 <Class name='TapNote'>
@@ -6127,6 +6219,11 @@ local spr = Def.Sprite{
 	<Function name='GetHidden' return='bool' arguments=''>
 		Returns true if the Tap Note was judged with a result that would stop it from drawing.
 	</Function>
+	<Function name='GetHeld' return='bool' arguments=''>
+		Returns whether the input for the Tap Note was ever held during
+		the judgment interval. Useful to distinguish a normal miss from
+		a held miss.
+	</Function>
 </Class>
 <Class name='HoldNoteResult'>
 	<Function name='GetHoldNoteScore' return='HoldNoteScore' arguments=''>
@@ -6152,6 +6249,12 @@ local spr = Def.Sprite{
 	</Function>
 	<Function name='GetActive' return='bool' arguments=''>
 		Returns true if the note was initiated.
+	</Function>
+</Class>
+<Class name='HttpRequestFuture'>
+	<Function name='Cancel' return='void' arguments=''>
+                Cancels the running HTTP request. Does nothing if the request
+                has already completed.
 	</Function>
 </Class>
 <Class name='TextBanner' grouping='Actor'>
