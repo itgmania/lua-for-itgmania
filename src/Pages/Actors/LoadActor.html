@@ -17,7 +17,7 @@ LoadActor( "WhatAreBirds.png" )..{
 }
 </code></pre>
 
-<p>As <a href="https://github.com/stepmania/stepmania/blob/a888506b3270d6c66d12cb2165fb8d4b1a7d978f/Themes/_fallback/Scripts/02%20ActorDef.lua#L95-L159">its definition</a> in the _fallback theme demonstrates, <em>LoadActor()</em> can load Lua files, image/video files, sound files, models, and directories.  In this manner, it can effectively take the place of knowing when to use <code>Def.Sprite{}</code>, <code>Def.Sound{}</code>, <code>Def.Model{}</code> or <code>Def.Actor</code>.</p>
+<p>As <a href="https://github.com/itgmania/itgmania/blob/a888506b3270d6c66d12cb2165fb8d4b1a7d978f/Themes/_fallback/Scripts/02%20ActorDef.lua#L95-L159">its definition</a> in the _fallback theme demonstrates, <em>LoadActor()</em> can load Lua files, image/video files, sound files, models, and directories.  In this manner, it can effectively take the place of knowing when to use <code>Def.Sprite{}</code>, <code>Def.Sound{}</code>, <code>Def.Model{}</code> or <code>Def.Actor</code>.</p>
 
 <h3>Second Argument - A table to pass into the loaded file</h3>
 
@@ -25,7 +25,7 @@ LoadActor( "WhatAreBirds.png" )..{
 
 <p><strong>Primary.lua</strong> will load <strong>Box.lua</strong> once for each available human player and pass in unique properties to each.  If only PLAYER_1 is available, only the red quadrilateral on the left will be drawn.  If only PLAYER_2 is available, only the blue quadrilateral on the right will be drawn.</p>
 
-<p><img alt="" class="img-fluid" src="/Lua-For-SM5/img/loadactor.png" /></p>
+<p><img alt="" class="img-fluid" src="/lua-for-itgmania/img/loadactor.png" /></p>
 
 <p>This sort of setup allows us to keep generic code definitions in files like Box.lua, and load them as needed from the primary file with specific values passed in.</p>
 

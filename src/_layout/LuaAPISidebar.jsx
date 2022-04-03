@@ -67,8 +67,8 @@ class Sidebar extends Component {
 
 				<div className="d-none d-md-block sticky-top sidebar-filter">
 					<div className="version">
-						<span className="smversion">StepMania {this.props.smVersion.release}</span> &nbsp;
-						<span className="githash">commit <a href={"https://github.com/stepmania/stepmania/tree/" + this.props.smVersion.githash} target="_blank" rel="noopener noreferrer">{this.props.smVersion.githash}</a></span>
+						<span className="smversion">ITGmania {this.props.smVersion.release}</span> &nbsp;
+						<span className="githash">commit <a href={"https://github.com/itgmania/itgmania/tree/" + this.props.smVersion.githash} target="_blank" rel="noopener noreferrer">{this.props.smVersion.githash}</a></span>
 					</div>
 
 					<hr />

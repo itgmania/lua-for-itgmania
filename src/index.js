@@ -9,7 +9,7 @@ import App from "./App"
 
 
 ReactDOM.render((
-	<BrowserRouter basename={process.env.PUBLIC_URL}>
+	<BrowserRouter basename="/lua-for-itgmania">
 		<App />
 	</BrowserRouter>
 ),  document.getElementById("root"));

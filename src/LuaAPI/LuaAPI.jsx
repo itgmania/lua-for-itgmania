@@ -239,7 +239,7 @@ class LuaAPI extends Component {
 		// it comes in as a string, but that can be converted to an XML doc using $.parseXML(str) from jQuery
 
 		// const hash = "6bea7639e8c184ca5d681d5d2f665c71eef64d44"
-		// const base = "https://raw.githubusercontent.com/stepmania/stepmania/"
+		// const base = "https://raw.githubusercontent.com/itgmania/itgmania/"
 		// const path = "/Docs/Luadoc/"
 		// const url  = base + hash + path
 		// ------------------------
@@ -280,7 +280,7 @@ class LuaAPI extends Component {
 			const constants        = Array.from(lua_api.docs.luadotxml.children("Constants").children("Constant"))
 
 			const smver = lua_api.docs.luadotxml.children("Version").text().split("-")
-			lua_api.docs.sm_version.release = smver[0].replace("StepMania", "")
+			lua_api.docs.sm_version.release = smver[0].replace("ITGmania", "")
 			lua_api.docs.sm_version.githash = (smver[2] !== undefined) ? smver[2] : ""
 
 			// ---------------------------------------------------------------------
@@ -604,11 +604,11 @@ class LuaAPI extends Component {
 			<div className="LuaAPI ps-md-4">
 
 				<div className="alert alert-info">
-					<span role="img" aria-label="info">ℹ️</span> The original API doc can still be found <a target="_blank" rel="noopener noreferrer" href="/Lua-For-SM5/Luadoc/Lua.xml">here</a>.
+					<span role="img" aria-label="info">ℹ️</span> The original API doc can still be found <a target="_blank" rel="noopener noreferrer" href={process.env.PUBLIC_URL + '/Luadoc/Lua.xml'}>here</a>.
 				</div>
 
 
-				<h1>SM5 Lua API</h1>
+				<h1>ITGmania API Reference</h1>
 
 				<SectionSMClass        name="Actors"          desc={this.state.G[0].desc} data={this.state.G[0].data} />
 				<SectionSMClass        name="Screens"         desc={this.state.G[1].desc} data={this.state.G[1].data} />

@@ -108,6 +108,8 @@
 		<Function name='IsRoutine'/>
 		<Function name='IsSMOnlineLoggedIn'/>
 		<Function name='IsUsingWideScreen'/>
+		<Function name='JsonDecode'/>
+		<Function name='JsonEncode'/>
 		<Function name='JudgmentLineToColor'/>
 		<Function name='JudgmentLineToLocalizedString'/>
 		<Function name='JudgmentLineToStrokeColor'/>
@@ -252,7 +254,6 @@
 		<Function name='loadstring'/>
 		<Function name='make_camel_aliases'/>
 		<Function name='mbstrlen'/>
-		<Function name='module'/>
 		<Function name='multiapproach'/>
 		<Function name='new_numpad_entry'/>
 		<Function name='newproxy'/>
@@ -269,7 +270,6 @@
 		<Function name='rec_count_children'/>
 		<Function name='rec_print_children'/>
 		<Function name='rec_print_table'/>
-		<Function name='require'/>
 		<Function name='round'/>
 		<Function name='scale'/>
 		<Function name='scale_to_fit'/>
@@ -1116,6 +1116,12 @@
 			<Function name='get_subtract_song_beat'/>
 			<Function name='set_subtract_song_beat'/>
 		</Class>
+		<Class name='NetworkManager'>
+			<Function name='IsUrlAllowed'/>
+			<Function name='HttpRequest'/>
+			<Function name='UrlEncode'/>
+			<Function name='EncodeQueryParameters'/>
+		</Class>
 		<Class base='Actor' name='NoteColumnRenderer'>
 			<Function name='get_pos_handler'/>
 			<Function name='get_rot_handler'/>
@@ -1246,6 +1252,7 @@
 			<Function name='DigitalZSteps'/>
 			<Function name='Dizzy'/>
 			<Function name='DizzyHolds'/>
+			<Function name='DisableTimingWindow'/>
 			<Function name='Distant'/>
 			<Function name='DrainSetting'/>
 			<Function name='DrawSize'/>
@@ -1265,6 +1272,7 @@
 			<Function name='Flip'/>
 			<Function name='Floored'/>
 			<Function name='FromString'/>
+			<Function name='GetDisabledTimingWindows'/>
 			<Function name='GetReversePercentForColumn'/>
 			<Function name='GetStepAttacks'/>
 			<Function name='IsEasierForSongAndSteps'/>
@@ -1317,6 +1325,7 @@
 			<Function name='RandAttack'/>
 			<Function name='RandomSpeed'/>
 			<Function name='RandomVanish'/>
+			<Function name='ResetDisabledTimingWindows'/>
 			<Function name='Reverse'/>
 			<Function name='Reversen'/>
 			<Function name='Right'/>
@@ -1366,6 +1375,7 @@
 			<Function name='Twirl'/>
 			<Function name='Twister'/>
 			<Function name='UsingReverse'/>
+			<Function name='VisualDelay'/>
 			<Function name='Wave'/>
 			<Function name='WavePeriod'/>
 			<Function name='Wide'/>
@@ -1581,10 +1591,12 @@
 			<Function name='destroy'/>
 		</Class>
 		<Class name='RageFileManager'>
+			<Function name='Copy'/>
 			<Function name='DoesFileExist'/>
 			<Function name='GetDirListing'/>
 			<Function name='GetFileSizeBytes'/>
 			<Function name='GetHashForFile'/>
+			<Function name='Unzip'/>
 		</Class>
 		<Class name='RageInput'>
 			<Function name='GetDescriptions'/>
@@ -1943,6 +1955,7 @@
 		</Class>
 		<Class name='StageStats'>
 			<Function name='AllFailed'/>
+			<Function name='GaveUp'/>
 			<Function name='GetEarnedExtraStage'/>
 			<Function name='GetGameplaySeconds'/>
 			<Function name='GetMultiPlayerStageStats'/>
@@ -2027,6 +2040,7 @@
 			<Function name='GetTapNoteScore'/>
 			<Function name='GetTapNoteOffset'/>
 			<Function name='GetHidden'/>
+			<Function name='GetHeld'/>
 		</Class>
 		<Class name='HoldNoteResult'>
 			<Function name='GetHoldNoteScore'/>
@@ -2037,6 +2051,9 @@
 			<Function name='GetCheckpointsMissed'/>
 			<Function name='GetHeld'/>
 			<Function name='GetActive'/>
+		</Class>
+		<Class name='HttpRequestFuture'>
+			<Function name='Cancel'/>
 		</Class>
 		<Class base='ActorFrame' name='TextBanner'>
 			<Function name='Load'/>
@@ -2255,6 +2272,7 @@
 		<Singleton class='RageInput' name='INPUTMAN'/>
 		<Singleton class='MemoryCardManager' name='MEMCARDMAN'/>
 		<Singleton class='MessageManager' name='MESSAGEMAN'/>
+		<Singleton class='NetworkManager' name='NETWORK'/>
 		<Singleton class='NoteSkinManager' name='NOTESKIN'/>
 		<Singleton class='PrefsManager' name='PREFSMAN'/>
 		<Singleton class='ProfileManager' name='PROFILEMAN'/>
@@ -2467,6 +2485,26 @@
 			<EnumValue name='&apos;HorizAlign_Center&apos;' value='1'/>
 			<EnumValue name='&apos;HorizAlign_Right&apos;' value='2'/>
 		</Enum>
+		<Enum name='HttpErrorCode'>
+			<EnumValue name='&apos;HttpErrorCode_Blocked&apos;' value='0'/>
+			<EnumValue name='&apos;HttpErrorCode_UnknownError&apos;' value='1'/>
+			<EnumValue name='&apos;HttpErrorCode_FileError&apos;' value='2'/>
+			<EnumValue name='&apos;HttpErrorCode_CannotConnect&apos;' value='3'/>
+			<EnumValue name='&apos;HttpErrorCode_Timeout&apos;' value='4'/>
+			<EnumValue name='&apos;HttpErrorCode_Gzip&apos;' value='5'/>
+			<EnumValue name='&apos;HttpErrorCode_UrlMalformed&apos;' value='6'/>
+			<EnumValue name='&apos;HttpErrorCode_CannotCreateSocket&apos;' value='7'/>
+			<EnumValue name='&apos;HttpErrorCode_SendError&apos;' value='8'/>
+			<EnumValue name='&apos;HttpErrorCode_ReadError&apos;' value='9'/>
+			<EnumValue name='&apos;HttpErrorCode_CannotReadStatusLine&apos;' value='10'/>
+			<EnumValue name='&apos;HttpErrorCode_MissingStatus&apos;' value='11'/>
+			<EnumValue name='&apos;HttpErrorCode_HeaderParsingError&apos;' value='12'/>
+			<EnumValue name='&apos;HttpErrorCode_MissingLocation&apos;' value='13'/>
+			<EnumValue name='&apos;HttpErrorCode_TooManyRedirects&apos;' value='14'/>
+			<EnumValue name='&apos;HttpErrorCode_ChunkReadError&apos;' value='15'/>
+			<EnumValue name='&apos;HttpErrorCode_CannotReadBody&apos;' value='16'/>
+			<EnumValue name='&apos;HttpErrorCode_Cancelled&apos;' value='17'/>
+		</Enum>
 		<Enum name='ImageCacheMode'>
 			<EnumValue name='&apos;ImageCacheMode_Off&apos;' value='0'/>
 			<EnumValue name='&apos;ImageCacheMode_LowResPreload&apos;' value='1'/>
@@ -2624,13 +2662,13 @@
 			<EnumValue name='&apos;NoteType_192nd&apos;' value='8'/>
 		</Enum>
 		<Enum name='OptEffect'>
-			<EnumValue name='&apos;OptEffect_SavePreferences&apos;' value='1'/>
-			<EnumValue name='&apos;OptEffect_ApplyGraphics&apos;' value='2'/>
-			<EnumValue name='&apos;OptEffect_ApplyTheme&apos;' value='4'/>
-			<EnumValue name='&apos;OptEffect_ChangeGame&apos;' value='8'/>
-			<EnumValue name='&apos;OptEffect_ApplySound&apos;' value='16'/>
-			<EnumValue name='&apos;OptEffect_ApplySong&apos;' value='32'/>
-			<EnumValue name='&apos;OptEffect_ApplyAspectRatio&apos;' value='64'/>
+			<EnumValue name='&apos;OptEffect_SavePreferences&apos;' value='0'/>
+			<EnumValue name='&apos;OptEffect_ApplyGraphics&apos;' value='1'/>
+			<EnumValue name='&apos;OptEffect_ApplyTheme&apos;' value='2'/>
+			<EnumValue name='&apos;OptEffect_ChangeGame&apos;' value='3'/>
+			<EnumValue name='&apos;OptEffect_ApplySound&apos;' value='4'/>
+			<EnumValue name='&apos;OptEffect_ApplySong&apos;' value='5'/>
+			<EnumValue name='&apos;OptEffect_ApplyAspectRatio&apos;' value='6'/>
 		</Enum>
 		<Enum name='PaneCategory'>
 			<EnumValue name='&apos;PaneCategory_NumSteps&apos;' value='0'/>
@@ -2884,7 +2922,7 @@
 			<EnumValue name='&apos;TapNoteType_Mine&apos;' value='4'/>
 			<EnumValue name='&apos;TapNoteType_Lift&apos;' value='5'/>
 			<EnumValue name='&apos;TapNoteType_Attack&apos;' value='6'/>
-			<EnumValue name='&apos;TapNoteType_AutoKeysound&apos;' value='7'/>
+			<EnumValue name='&apos;TapNoteType_AutoKeySound&apos;' value='7'/>
 			<EnumValue name='&apos;TapNoteType_Fake&apos;' value='8'/>
 		</Enum>
 		<Enum name='TapNoteSubType'>
@@ -2904,6 +2942,18 @@
 			<EnumValue name='&apos;TextureMode_Modulate&apos;' value='0'/>
 			<EnumValue name='&apos;TextureMode_Glow&apos;' value='1'/>
 			<EnumValue name='&apos;TextureMode_Add&apos;' value='2'/>
+		</Enum>
+		<Enum name='TimingWindow'>
+			<EnumValue name='&apos;TimingWindow_W1&apos;' value='0'/>
+			<EnumValue name='&apos;TimingWindow_W2&apos;' value='1'/>
+			<EnumValue name='&apos;TimingWindow_W3&apos;' value='2'/>
+			<EnumValue name='&apos;TimingWindow_W4&apos;' value='3'/>
+			<EnumValue name='&apos;TimingWindow_W5&apos;' value='4'/>
+			<EnumValue name='&apos;TimingWindow_Mine&apos;' value='5'/>
+			<EnumValue name='&apos;TimingWindow_Attack&apos;' value='6'/>
+			<EnumValue name='&apos;TimingWindow_Hold&apos;' value='7'/>
+			<EnumValue name='&apos;TimingWindow_Roll&apos;' value='8'/>
+			<EnumValue name='&apos;TimingWindow_Checkpoint&apos;' value='9'/>
 		</Enum>
 		<Enum name='TweenType'>
 			<EnumValue name='&apos;TweenType_Linear&apos;' value='0'/>
@@ -2984,6 +3034,6 @@
 		<Constant name='right' value='&apos;HorizAlign_Right&apos;'/>
 		<Constant name='top' value='&apos;VertAlign_Top&apos;'/>
 	</Constants>
-	<Version>StepMania5.1-git-6a645b4710</Version>
-	<Date>2020-09-09</Date>
+	<Version>ITGmania0.5-git-02008eb469</Version>
+	<Date>2022-04-03</Date>
 </Lua>

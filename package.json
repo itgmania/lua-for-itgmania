@@ -1,5 +1,5 @@
 {
-  "name": "lua_for_sm5",
+  "name": "lua_for_itgmania",
   "version": "0.1.0",
   "private": true,
   "browserslist": [
@@ -31,7 +31,7 @@
     "deploy": "gh-pages -d build",
     "convert-pages": "node src/html-to-json.js"
   },
-  "homepage": "https://quietly-turning.github.io/Lua-For-SM5/",
+  "homepage": "https://itgmania.github.io/lua-for-itgmania/",
   "devDependencies": {
     "recursive-readdir": "^2.2.2"
   }

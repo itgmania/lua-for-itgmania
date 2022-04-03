@@ -16,7 +16,7 @@ class Method extends Component {
 		this.updateHash = this.updateHash.bind(this)
 
 		if (this.props.method.url !== undefined){
-			const base = "https://github.com/stepmania/stepmania/tree/"
+			const base = "https://github.com/itgmania/itgmania/tree/"
 			const hash = "HEAD"
 			const url  = base + hash + this.props.method.url
 

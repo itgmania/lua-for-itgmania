@@ -9,8 +9,8 @@ class Header extends Component {
 
 				<div className="navbar-nav">
 					<NavLink className="ms-4 me-5 nav-link text-nowrap text-white font-weight-normal" exact to="/">
-						<img src="/Lua-For-SM5/img/stepmania.png" className="me-2" alt="" width="25" height="25" />
-						Lua for SM5
+						<img src={process.env.PUBLIC_URL + '/img/stepmania.png'} className="me-2" alt="" width="25" height="25" />
+						Lua for ITGmania
 					</NavLink>
 				</div>
 
@@ -25,7 +25,7 @@ class Header extends Component {
 							<NavLink className="nav-link" exact to="/">Guides</NavLink>
 						</li>
 						<li className="nav-item">
-							<NavLink className="nav-link" to="/LuaAPI">Lua API</NavLink>
+							<NavLink className="nav-link" to="/LuaAPI">API Reference</NavLink>
 						</li>
 						<li className="nav-item">
 							<NavLink className="nav-link" to="/Resources">Other Resources</NavLink>
