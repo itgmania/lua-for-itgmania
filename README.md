@@ -1,6 +1,8 @@
 ## Lua for ITGmania – GitHub Repository
 
-This is the GitHub repository for my Lua for ITGmania Guide and API doc.  You're probably interested in the site itself, which is at <https://itgmania.github.io/lua-for-itgmania/LuaAPI>
+This is the GitHub repository for the Lua for ITGmania Guide and API doc.  You're probably interested in the site itself, which is at <https://itgmania.github.io/lua-for-itgmania/LuaAPI>
+
+The guide is based on quietly-turning's awesome [Lua for SM5](https://quietly-turning.github.io/Lua-For-SM5/) guide. Thank you! 🙏
 
 ### Contributing
 
