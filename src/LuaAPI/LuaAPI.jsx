@@ -384,6 +384,7 @@ class LuaAPI extends Component {
 						name: method_name,
 						return: lua_api.getReturnValue( method_doc.attr("return") ),
 						arguments: method_doc.attr("arguments") || "",
+						since: method_doc.attr("since"),
 						desc: lua_api.check_for_links(method_doc),
 						url: lua_api.docs.github.funcdefs[class_name] && lua_api.docs.github.funcdefs[class_name][method_name]
 					}
@@ -433,6 +434,7 @@ class LuaAPI extends Component {
 						name: $(func).attr("name"),
 						return: lua_api.getReturnValue( fdoc.attr("return") ),
 						arguments: fdoc.attr("arguments") || "",
+						since: fdoc.attr("since"),
 						desc: lua_api.check_for_links(fdoc)
 					})
 				})
@@ -481,6 +483,7 @@ class LuaAPI extends Component {
 						name: method_name,
 						return: lua_api.getReturnValue( method_doc.attr("return") ),
 						arguments: method_doc.attr("arguments") || "",
+						since: method_doc.attr("since"),
 						desc: lua_api.check_for_links(method_doc),
 						url: lua_api.docs.github.funcdefs[sm_class] && lua_api.docs.github.funcdefs[sm_class][method_name]
 					}
@@ -512,6 +515,7 @@ class LuaAPI extends Component {
 					arguments: _doc.attr("arguments"),
 					desc: lua_api.check_for_links(_doc),
 					theme: _doc.attr("theme") || "",
+					since: _doc.attr("since"),
 					url: lua_api.docs.github.funcdefs.GlobalFunctions[_name],
 					grouping: "GlobalFunctions"
 				})

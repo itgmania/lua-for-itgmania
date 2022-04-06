@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import ReactDOMServer from 'react-dom/server'
 import Octicon, {Link, LogoGithub} from '@primer/octicons-react'
 
 class Method extends Component {
@@ -25,6 +26,14 @@ class Method extends Component {
 		} else {
 			this.github_anchor = ""
 		}
+
+		this.description = this.props.method.desc
+
+		if (this.props.method.since !== undefined) {
+			window.foo = <em>New in {this.props.method.since}</em>
+			this.description += "<br>"
+			this.description += ReactDOMServer.renderToString(<em>New in {this.props.method.since}</em>)
+		}
 	}
 
 	updateHash(){
@@ -44,7 +53,7 @@ class Method extends Component {
 				</div>
 
 				<span className="method-return"><em>return: </em> <span dangerouslySetInnerHTML={{__html: this.props.method.return}} />  </span>
-				<span className="description description" dangerouslySetInnerHTML={{ __html: this.props.method.desc }} />
+				<div className="description description" dangerouslySetInnerHTML={{ __html: this.description }} />
 			</div>
 		)
 	}
