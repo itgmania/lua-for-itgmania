@@ -32,7 +32,7 @@ class Method extends Component {
 		if (this.props.method.since !== undefined) {
 			window.foo = <em>New in {this.props.method.since}</em>
 			this.description += "<br>"
-			this.description += ReactDOMServer.renderToString(<em>New in {this.props.method.since}</em>)
+			this.description += ReactDOMServer.renderToString(<em>New in {this.props.method.since}.</em>)
 		}
 	}
 
