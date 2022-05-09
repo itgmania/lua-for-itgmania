@@ -26,11 +26,17 @@ a{
 // -------------------------------------------------------
 
 #topbar{
-	padding: 2px 0px;
+	padding: 0px 0px;
 	background-color: #282828;
 
 	a.nav-link{
 		font-size: 1.15em;
+	}
+
+	img {
+		width: 25px;
+		height: 25px;
+		filter: drop-shadow(0 0 2px white);
 	}
 }
 
@@ -186,6 +192,13 @@ a{
 // rules that will only apply when Bootstrap is in lg and xl
 
 @media only screen and (min-width : 767px) {
+	#topbar{
+		img {
+			width: 42px;
+			height: 42px;
+		}
+	}
+
 	#content{
 		max-width: 800px;
 	}

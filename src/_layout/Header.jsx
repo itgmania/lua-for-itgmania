@@ -9,7 +9,7 @@ class Header extends Component {
 
 				<div className="navbar-nav">
 					<NavLink className="ms-4 me-5 nav-link text-nowrap text-white font-weight-normal" exact to="/">
-						<img src={process.env.PUBLIC_URL + '/img/stepmania.png'} className="me-2" alt="" width="25" height="25" />
+						<img src={process.env.PUBLIC_URL + '/img/itgmania.png'} className="ms-2 me-3" alt="" />
 						Lua for ITGmania
 					</NavLink>
 				</div>
