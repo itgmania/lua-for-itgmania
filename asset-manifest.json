@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lua-for-itgmania/static/css/main.23c66bd0.css",
-    "main.js": "/lua-for-itgmania/static/js/main.9866ca7f.js",
+    "main.css": "/lua-for-itgmania/static/css/main.4547eced.css",
+    "main.js": "/lua-for-itgmania/static/js/main.78fe8df5.js",
     "index.html": "/lua-for-itgmania/index.html",
-    "main.23c66bd0.css.map": "/lua-for-itgmania/static/css/main.23c66bd0.css.map",
-    "main.9866ca7f.js.map": "/lua-for-itgmania/static/js/main.9866ca7f.js.map"
+    "main.4547eced.css.map": "/lua-for-itgmania/static/css/main.4547eced.css.map",
+    "main.78fe8df5.js.map": "/lua-for-itgmania/static/js/main.78fe8df5.js.map"
   },
   "entrypoints": [
-    "static/css/main.23c66bd0.css",
-    "static/js/main.9866ca7f.js"
+    "static/css/main.4547eced.css",
+    "static/js/main.78fe8df5.js"
   ]
 }
