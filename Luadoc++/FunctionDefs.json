@@ -198,7 +198,6 @@
 		"PlayerScoreColor": "/Themes/_fallback/Scripts/02%20Colors.lua#L142-L144",
 		"IsHome": "/Themes/_fallback/Scripts/02%20Utilities.lua#L191-L193",
 		"BoostColor": "/Themes/_fallback/Scripts/02%20Colors.lua#L115-L118",
-		"SMOnlineScreen": "/Themes/_fallback/Scripts/02%20Branches.lua#L10-L17",
 		"PositionPerPlayer": "/Themes/_fallback/Scripts/02%20Actor.lua#L397-L399",
 		"wrap": "/Themes/_fallback/Scripts/02%20Utilities.lua#L32-L42",
 		"CustomDifficultyToLightColor": "/Themes/_fallback/Scripts/02%20Colors.lua#L166-L169",
